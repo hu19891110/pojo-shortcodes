@@ -1,12 +1,3 @@
-/* = Divider
----------------------------------------------------------*/
-.divider-style-space {border: none;}
-a.divider-up-button {display: block;color: #999;outline: none;text-align: right;font-size: 10px;}
-.divider-with-up-button {margin-top: 0;}
-
-/* For RTL */
-.rtl a.divider-up-button {text-align: left;}
-
 /* = Columns
 --------------------------------------------------*/
 .column-grid {clear: both;}
