@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 define( 'POJO_SHORTCODES__FILE__', __FILE__ );
 define( 'POJO_SHORTCODES_BASE', plugin_basename( POJO_SHORTCODES__FILE__ ) );
 define( 'POJO_SHORTCODES_URL', plugins_url( '/', POJO_SHORTCODES__FILE__ ) );
+define( 'POJO_SHORTCODES_PATH', plugin_dir_path( POJO_SHORTCODES__FILE__ ) . '/' );
 define( 'POJO_SHORTCODES_ASSETS_PATH', plugin_dir_path( POJO_SHORTCODES__FILE__ ) . 'assets/' );
 define( 'POJO_SHORTCODES_ASSETS_URL', POJO_SHORTCODES_URL . 'assets/' );
 
@@ -25,6 +26,11 @@ final class Pojo_Shortcodes {
 	 * @since 1.0.0
 	 */
 	private static $_instance = null;
+
+	/**
+	 * @var Pojo_Shortcodes_Manager
+	 */
+	public $manager;
 
 	public function load_textdomain() {
 		load_plugin_textdomain( 'pojo-shortcodes', false, basename( dirname( __FILE__ ) ) . '/languages' );
@@ -71,7 +77,14 @@ final class Pojo_Shortcodes {
 		if ( ! class_exists( 'Pojo_Core' ) )
 			return;
 
-		
+		add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_scripts' ), 100 );
+
+		include( POJO_SHORTCODES_PATH . 'includes/class-pojo-shortcodes-manager.php' );
+		$this->manager = new Pojo_Shortcodes_Manager();
+	}
+
+	public function enqueue_scripts() {
+		wp_enqueue_style( 'pojo-shortcodes', POJO_SHORTCODES_ASSETS_URL . 'css/front.css' );
 	}
 
 	private function __construct() {

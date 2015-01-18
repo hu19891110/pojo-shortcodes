@@ -187,7 +187,6 @@ class Pojo_Shortcodes_Item_Column extends Pojo_Shortcodes_Item_Base {
 		add_filter( 'gc_column_content', 'shortcode_unautop' );
 		add_filter( 'gc_column_content', 'do_shortcode' );
 		
-		
 		parent::__construct();
 	}
 	
