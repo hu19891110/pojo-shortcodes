@@ -10,7 +10,6 @@ class Pojo_Shortcodes_Item_Divider extends Pojo_Shortcodes_Item_Base {
 	public function render( $atts = array(), $content = null ) {
 		$atts = shortcode_atts( $this->_get_default_values(), $atts );
 
-
 		$wrap_style_array = $hr_style_array = array();
 		if ( ! empty( $atts['margin_top'] ) )
 			$wrap_style_array[] = 'margin-top:' . $atts['margin_top'];
