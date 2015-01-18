@@ -5,6 +5,7 @@ final class Pojo_Shortcodes_Manager {
 	
 	public $shortcodes = array(
 		'column',
+		'divider',
 	);
 	
 	protected $_instances = array();
