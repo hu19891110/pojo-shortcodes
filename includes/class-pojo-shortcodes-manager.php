@@ -7,6 +7,7 @@ final class Pojo_Shortcodes_Manager {
 		'button',
 		'column',
 		'divider',
+		'menu_anchor',
 	);
 	
 	protected $_instances = array();
